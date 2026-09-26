@@ -23,7 +23,7 @@ public class ArrayListMultiSet extends MultiSet {
      */
     @Override
     void remove(int item) {
-
+        lst.remove(Integer.valueOf(item));
     }
 
     /**
@@ -53,8 +53,16 @@ public class ArrayListMultiSet extends MultiSet {
      */
     @Override
     int count(int item) {
-        return -1;
-    }
+        int count = 0;
+
+        for (int x : lst) {
+            if (x == item) {
+                count++;
+            }
+        }
+
+        return count;
+        }
 
     /**
      * @return How many items are in this multiset.
